@@ -1,6 +1,6 @@
 // src/entities/cells/registry.ts
-import { BaseCell, CellTypeRegistry } from '../../types/Cell.ts';
-import { BattleState } from '../../types/BattleState.ts';
+import { BaseCell, CellTypeRegistry } from '../../types/Cell';
+import { BattleState } from '../../types/BattleState';
 
 // Import cell types and functions
 import { CORE, createCoreCell, damageCoreCell, handleCoreCollision, renderCoreCell, updateCoreCell } from './core';
