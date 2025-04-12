@@ -1,6 +1,5 @@
 import { BasicBullet } from './basic';
-import { ARENA_SIZE } from '../../types/Constants.ts';
-
+import { ARENA_SIZE } from '../../types/Constants';
 
 export function handleBulletBoundary(bullet: BasicBullet): void {
 	// X boundaries wraparound

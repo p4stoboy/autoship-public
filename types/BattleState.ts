@@ -5,7 +5,6 @@ import { Particle } from './Particle';
 import { RNG } from '../utils/determinism';
 import { BattleRenderConfig } from './RenderConfig';
 
-
 export interface BattleState {
 	seed: number;
 	rng: RNG;

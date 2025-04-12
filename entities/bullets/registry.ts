@@ -15,13 +15,17 @@ import {
 // Bullet type registry
 export const bulletTypes: Record<string, BulletTypeRegistry> = {
 	[BASIC_BULLET]: {
-		create:      createBasicBullet,
-		update:      updateBasicBullet as (bullet: BaseBullet, battleState: BattleState) => void,
-		render:      renderBasicBullet as (ctx: CanvasRenderingContext2D, bullet: BaseBullet) => void,
-		onCollision: handleBulletCellCollision as (bullet: BaseBullet, cell: BaseCell, shipId: string, battleState: BattleState) => void,
+		create: createBasicBullet,
+		update: updateBasicBullet as (bullet: BaseBullet, battleState: BattleState) => void,
+		render: renderBasicBullet as (ctx: CanvasRenderingContext2D, bullet: BaseBullet) => void,
+		onCollision: handleBulletCellCollision as (
+			bullet: BaseBullet,
+			cell: BaseCell,
+			shipId: string,
+			battleState: BattleState
+		) => void,
 	},
 };
-
 
 // Function to update any bullet
 export function updateBullet(bullet: BaseBullet, battleState: BattleState): void {
@@ -46,7 +50,7 @@ export function handleBulletCollision(
 	bullet: BaseBullet,
 	cell: BaseCell,
 	shipId: string,
-	battleState: BattleState,
+	battleState: BattleState
 ): void {
 	const bulletType = bulletTypes[bullet.type];
 	if (!bulletType || !bulletType.onCollision) {

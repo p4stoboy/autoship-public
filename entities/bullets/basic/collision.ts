@@ -5,12 +5,11 @@ import { BattleState } from '../../../types/BattleState.ts';
 import { createBulletImpactParticles } from './particles';
 import { damageCell } from '../../cells/registry.ts';
 
-
 export function handleBulletCellCollision(
 	bullet: BasicBullet,
 	cell: BaseCell,
 	shipId: string,
-	battleState: BattleState,
+	battleState: BattleState
 ): void {
 	if (bullet.shipId === shipId) {
 		// Bullet belongs to the same ship, ignore collision

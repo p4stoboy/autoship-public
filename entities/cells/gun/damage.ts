@@ -1,14 +1,13 @@
 // src/entities/cells/gun/damage.ts
 import { GunCell } from './types';
-import { BattleState } from '../../../types/BattleState.ts';
+import { BattleState } from '../../../types/BattleState';
 import { createGunExplosion } from './particles';
-
 
 export function damageGunCell(
 	cell: GunCell,
 	amount: number,
 	shipId: string,
-	battleState: BattleState,
+	battleState: BattleState
 ): void {
 	// Skip if already destroyed
 	if (cell.destroyed) return;
@@ -20,7 +19,7 @@ export function damageGunCell(
 	// Gun-specific damage effects
 	// Damaged guns have slower fire rate
 	const healthRatio = cell.health / cell.maxHealth;
-	cell.fireRate     = Math.floor(cell.fireRate * (1 + (1 - healthRatio) * 0.5));
+	cell.fireRate = Math.floor(cell.fireRate * (1 + (1 - healthRatio) * 0.5));
 
 	// Check if destroyed
 	if (cell.health <= 0) {
@@ -28,14 +27,10 @@ export function damageGunCell(
 	}
 }
 
-export function destroyGunCell(
-	cell: GunCell,
-	shipId: string,
-	battleState: BattleState,
-): void {
+export function destroyGunCell(cell: GunCell, shipId: string, battleState: BattleState): void {
 	// Mark as destroyed
 	cell.destroyed = true;
-	cell.health    = 0;
+	cell.health = 0;
 
 	// Create explosion particles
 	const ship = battleState.ships[shipId];

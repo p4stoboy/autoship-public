@@ -1,14 +1,13 @@
 // src/entities/cells/core/damage.ts
 import { CoreCell } from './types';
-import { BattleState } from '../../../types/BattleState.ts';
-import { createCoreExplosion } from './particles.ts';
-
+import { BattleState } from '../../../types/BattleState';
+import { createCoreExplosion } from './particles';
 
 export function damageCoreCell(
 	cell: CoreCell,
 	amount: number,
 	shipId: string,
-	battleState: BattleState,
+	battleState: BattleState
 ): void {
 	// Skip if already destroyed
 	if (cell.destroyed) return;
@@ -26,14 +25,10 @@ export function damageCoreCell(
 	}
 }
 
-export function destroyCoreCell(
-	cell: CoreCell,
-	shipId: string,
-	battleState: BattleState,
-): void {
+export function destroyCoreCell(cell: CoreCell, shipId: string, battleState: BattleState): void {
 	// Mark as destroyed
 	cell.destroyed = true;
-	cell.health    = 0;
+	cell.health = 0;
 
 	// Create explosion particles
 	const ship = battleState.ships[shipId];

@@ -3,19 +3,18 @@ import { BasicBullet } from './types';
 import { BaseCell } from '../../../types/Cell.ts';
 import { BattleState } from '../../../types/BattleState.ts';
 
-
 export function createBulletImpactParticles(
 	bullet: BasicBullet,
 	_cell: BaseCell,
-	battleState: BattleState,
+	battleState: BattleState
 ): void {
-	const r     = battleState.rng;
+	const r = battleState.rng;
 	const count = r.nextInt(5, 10);
 
 	for (let i = 0; i < count; i++) {
 		// Random direction, biased opposite to bullet direction
 		const baseAngle = Math.atan2(bullet.vel.y, bullet.vel.x) + Math.PI;
-		const angle     = baseAngle + r.nextFloat(-0.8, 0.8);
+		const angle = baseAngle + r.nextFloat(-0.8, 0.8);
 
 		// Random speed
 		const speed = r.nextFloat(0.5, 2);
@@ -27,13 +26,13 @@ export function createBulletImpactParticles(
 
 		// Create the particle
 		battleState.particles.push({
-																 id:    `impact-${battleState.frame}-${r.randomString(4)}`,
-																 pos:   { ...bullet.pos },
-																 vel:   velocity,
-																 color: bullet.color,
-																 size:  r.nextFloat(0.8, 1.2),
-																 ttl:   r.nextInt(10, 20),
-																 t:     0,
-															 });
+			id: `impact-${battleState.frame}-${r.randomString(4)}`,
+			pos: { ...bullet.pos },
+			vel: velocity,
+			color: bullet.color,
+			size: r.nextFloat(0.8, 1.2),
+			ttl: r.nextInt(10, 20),
+			t: 0,
+		});
 	}
 }

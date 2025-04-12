@@ -59,7 +59,10 @@ export const giveRNG = (seed: number = Date.now()): RNG => {
 		return weights.length - 1;
 	};
 
-	const randomString = (length: number = 8, chars: string = 'abcdefghijklmnopqrstuvwxyz0123456789'): string => {
+	const randomString = (
+		length: number = 8,
+		chars: string = 'abcdefghijklmnopqrstuvwxyz0123456789'
+	): string => {
 		let result = '';
 		for (let i = 0; i < length; i++) {
 			const randomIndex = nextInt(0, chars.length - 1);
@@ -150,9 +153,6 @@ export const dv = {
 	},
 
 	magnitude: (vector: { x: number; y: number }, precision = 1000) => {
-		return dv.fixPrecision(
-			Math.sqrt(vector.x * vector.x + vector.y * vector.y),
-			precision,
-		);
+		return dv.fixPrecision(Math.sqrt(vector.x * vector.x + vector.y * vector.y), precision);
 	},
 };

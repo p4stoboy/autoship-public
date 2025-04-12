@@ -1,6 +1,5 @@
 // src/entities/cells/hull/types.ts
-import { BaseCell } from '../../../types/Cell.ts';
-
+import { BaseCell } from '../../../types/Cell';
 
 export const HULL = 'hull';
 

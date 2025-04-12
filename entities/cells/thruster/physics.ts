@@ -4,11 +4,7 @@ import { Ship } from '../../../types/Ship';
 import { MAX_ANGULAR_VELOCITY, MAX_SHIP_VELOCITY, SHIP_SIZE } from '../../../types/Constants';
 import { dv } from '../../../utils/determinism';
 
-
-export function applyThrusterForce(
-	cell: ThrusterCell,
-	ship: Ship,
-): void {
+export function applyThrusterForce(cell: ThrusterCell, ship: Ship): void {
 	// Skip if thruster isn't firing
 	if (!cell.firing) return;
 
@@ -34,14 +30,17 @@ export function applyThrusterForce(
 	const worldForce = dv.rotate(localForce, ship.rot);
 
 	// Get physics properties from ship
-	const { totalMass, centerOfMass, momentOfInertia } =
-				ship.physicsProperties || { totalMass: 1, centerOfMass: { x: 0, y: 0 }, momentOfInertia: 1 };
+	const { totalMass, centerOfMass, momentOfInertia } = ship.physicsProperties || {
+		totalMass: 1,
+		centerOfMass: { x: 0, y: 0 },
+		momentOfInertia: 1,
+	};
 
 	// Calculate cell position relative to center of mass
 	const centerCoord = Math.floor(SHIP_SIZE / 2);
-	const relPos      = {
-		x: (cell.pos.x - centerCoord) - centerOfMass.x,
-		y: (cell.pos.y - centerCoord) - centerOfMass.y,
+	const relPos = {
+		x: cell.pos.x - centerCoord - centerOfMass.x,
+		y: cell.pos.y - centerCoord - centerOfMass.y,
 	};
 
 	// Calculate torque (r × F)

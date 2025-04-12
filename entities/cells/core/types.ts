@@ -1,6 +1,5 @@
 // src/entities/cells/core/types.ts
-import { BaseCell } from '../../../types/Cell.ts';
-
+import { BaseCell } from '../../../types/Cell';
 
 export const CORE = 'core';
 

@@ -1,8 +1,8 @@
 export enum DebugLevel {
-	NONE  = 0,
+	NONE = 0,
 	ERROR = 1,
-	WARN  = 2,
-	INFO  = 3,
+	WARN = 2,
+	INFO = 3,
 	DEBUG = 4,
 }
 

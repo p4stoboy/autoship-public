@@ -2,7 +2,6 @@
 import { Vec2 } from './Physics';
 import { BattleState } from './BattleState';
 
-
 export interface BaseCell {
 	id: string;
 	type: string;
@@ -27,5 +26,11 @@ export interface CellTypeRegistry {
 	update: (cell: BaseCell, shipId: string, battleState: BattleState) => void;
 	damage: (cell: BaseCell, amount: number, shipId: string, battleState: BattleState) => void;
 	render: (ctx: CanvasRenderingContext2D, cell: BaseCell, shipRot: number) => void;
-	onCollision?: (cell: BaseCell, otherCell: BaseCell, shipId: string, otherShipId: string, battleState: BattleState) => void;
+	onCollision?: (
+		cell: BaseCell,
+		otherCell: BaseCell,
+		shipId: string,
+		otherShipId: string,
+		battleState: BattleState
+	) => void;
 }

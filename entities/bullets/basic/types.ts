@@ -1,7 +1,6 @@
 // src/entities/bullets/basic/types.ts
 import { BaseBullet } from '../../../types/Bullet.ts';
 
-
 export const BASIC_BULLET = 'basic';
 
 export interface BasicBullet extends BaseBullet {

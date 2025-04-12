@@ -1,12 +1,11 @@
 // src/entities/cells/core/render.ts
 import { CoreCell } from './types';
-import { SHIP_CELL_SIZE } from '../../../types/Constants.ts';
-
+import { SHIP_CELL_SIZE } from '../../../types/Constants';
 
 export function renderCoreCell(
 	ctx: CanvasRenderingContext2D,
 	cell: CoreCell,
-	_shipRot: number,
+	_shipRot: number
 ): void {
 	const { cellSize } = { cellSize: SHIP_CELL_SIZE }; // Default cell size
 
@@ -24,10 +23,10 @@ export function renderCoreCell(
 
 	// Draw core
 	ctx.fillRect(
-		-cellSize * sizeMultiplier / 2,
-		-cellSize * sizeMultiplier / 2,
+		(-cellSize * sizeMultiplier) / 2,
+		(-cellSize * sizeMultiplier) / 2,
 		cellSize * sizeMultiplier,
-		cellSize * sizeMultiplier,
+		cellSize * sizeMultiplier
 	);
 
 	// // Add a stroke

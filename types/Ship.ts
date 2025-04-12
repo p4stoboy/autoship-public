@@ -2,7 +2,6 @@
 import { Vec2 } from './Physics';
 import { BaseCell } from './Cell';
 
-
 export interface ShipPhysicsProperties {
 	totalMass: number;
 	centerOfMass: Vec2;
