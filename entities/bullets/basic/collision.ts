@@ -1,15 +1,16 @@
 // src/entities/bullets/basic/collision.ts
 import { BasicBullet } from './types';
-import { BaseCell } from '../../../types/Cell.ts';
-import { BattleState } from '../../../types/BattleState.ts';
+import { BaseCell } from '../../../types/Cell';
+import { BattleState } from '../../../types/BattleState';
 import { createBulletImpactParticles } from './particles';
-import { damageCell } from '../../cells/registry.ts';
+import { damageCell } from '../../cells/registry';
+
 
 export function handleBulletCellCollision(
 	bullet: BasicBullet,
 	cell: BaseCell,
 	shipId: string,
-	battleState: BattleState
+	battleState: BattleState,
 ): void {
 	if (bullet.shipId === shipId) {
 		// Bullet belongs to the same ship, ignore collision

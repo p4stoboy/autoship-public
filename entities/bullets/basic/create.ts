@@ -1,8 +1,9 @@
 // Function to create a basic bullet
-import { Vec2 } from '../../../types/Physics.ts';
-import { BattleState } from '../../../types/BattleState.ts';
-import { BaseBullet } from '../../../types/Bullet.ts';
-import { BASIC_BULLET } from './types.ts';
+import { Vec2 } from '../../../types/Physics';
+import { BattleState } from '../../../types/BattleState';
+import { BaseBullet } from '../../../types/Bullet';
+import { BASIC_BULLET } from './types';
+
 
 export function createBasicBullet(
 	shipId: string,
@@ -10,7 +11,7 @@ export function createBasicBullet(
 	dir: number,
 	speed: number,
 	damage: number,
-	battleState: BattleState
+	battleState: BattleState,
 ): BaseBullet {
 	const r = battleState.rng;
 
@@ -21,17 +22,17 @@ export function createBasicBullet(
 	};
 
 	return {
-		id: `bullet-${shipId}-${battleState.frame}-${r.randomString(4)}`,
-		type: BASIC_BULLET,
+		id:        `bullet-${shipId}-${battleState.frame}-${r.randomString(4)}`,
+		type:      BASIC_BULLET,
 		shipId,
-		pos: { ...pos },
+		pos:       { ...pos },
 		vel,
 		dir,
 		speed,
 		damage,
-		ttl: 120, // Default 60 frames
-		size: 1,
-		color: '#e74c3c',
+		ttl:       120, // Default 60 frames
+		size:      1,
+		color:     '#e74c3c',
 		destroyed: false,
 	};
 }
