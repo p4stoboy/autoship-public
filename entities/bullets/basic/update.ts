@@ -1,7 +1,8 @@
 // src/entities/bullets/basic/update.ts
 import { BasicBullet } from './types';
-import { BattleState } from '../../../types/BattleState.ts';
-import { handleBulletBoundary } from '../boundary.ts';
+import { BattleState } from '../../../types/BattleState';
+import { handleBulletBoundary } from '../boundary';
+
 
 export function updateBasicBullet(bullet: BasicBullet, _battleState: BattleState): void {
 	// Skip destroyed bullets

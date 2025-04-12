@@ -1,12 +1,13 @@
 // src/entities/cells/thruster/render.ts
 import { ThrusterCell } from './types';
-import { SHIP_CELL_SIZE } from '../../../types/Constants.ts';
+import { SHIP_CELL_SIZE } from '../../../types/Constants';
 import { darkenColor } from '../../../utils/color';
+
 
 export function renderThrusterCell(
 	ctx: CanvasRenderingContext2D,
 	cell: ThrusterCell,
-	_shipRot: number
+	_shipRot: number,
 ): void {
 	const { cellSize } = { cellSize: SHIP_CELL_SIZE }; // Default cell size
 

@@ -1,5 +1,6 @@
 // src/entities/cells/thruster/types.ts
-import { BaseCell } from '../../../types/Cell.ts';
+import { BaseCell } from '../../../types/Cell';
+
 
 export const THRUSTER = 'thruster';
 

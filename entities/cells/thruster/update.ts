@@ -1,19 +1,20 @@
 // src/entities/cells/thruster/update.ts
 import { ThrusterCell } from './types';
-import { BattleState } from '../../../types/BattleState.ts';
+import { BattleState } from '../../../types/BattleState';
 import { applyThrusterForce } from './physics';
 import { createThrusterParticles } from './particles';
+
 
 export function updateThrusterCell(
 	cell: ThrusterCell,
 	shipId: string,
-	battleState: BattleState
+	battleState: BattleState,
 ): void {
 	// Skip if destroyed
 	if (cell.destroyed) return;
 	// Check if thruster should be firing this frame
 	const isActive = true; //battleState.frame % cell.period < cell.active;
-	cell.firing = isActive;
+	cell.firing    = isActive;
 
 	if (isActive) {
 		// Apply force to the ship

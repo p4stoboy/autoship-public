@@ -1,5 +1,6 @@
 // src/entities/bullets/basic/types.ts
-import { BaseBullet } from '../../../types/Bullet.ts';
+import { BaseBullet } from '../../../types/Bullet';
+
 
 export const BASIC_BULLET = 'basic';
 

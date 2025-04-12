@@ -1,7 +1,7 @@
 // src/entities/bullets/registry.ts
-import { BaseBullet, BulletTypeRegistry } from '../../types/Bullet.ts';
-import { BaseCell } from '../../types/Cell.ts';
-import { BattleState } from '../../types/BattleState.ts';
+import { BaseBullet, BulletTypeRegistry } from '../../types/Bullet';
+import { BaseCell } from '../../types/Cell';
+import { BattleState } from '../../types/BattleState';
 
 // Import bullet types and functions
 import {
@@ -15,14 +15,14 @@ import {
 // Bullet type registry
 export const bulletTypes: Record<string, BulletTypeRegistry> = {
 	[BASIC_BULLET]: {
-		create: createBasicBullet,
-		update: updateBasicBullet as (bullet: BaseBullet, battleState: BattleState) => void,
-		render: renderBasicBullet as (ctx: CanvasRenderingContext2D, bullet: BaseBullet) => void,
+		create:      createBasicBullet,
+		update:      updateBasicBullet as (bullet: BaseBullet, battleState: BattleState) => void,
+		render:      renderBasicBullet as (ctx: CanvasRenderingContext2D, bullet: BaseBullet) => void,
 		onCollision: handleBulletCellCollision as (
 			bullet: BaseBullet,
 			cell: BaseCell,
 			shipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
 	},
 };
@@ -50,7 +50,7 @@ export function handleBulletCollision(
 	bullet: BaseBullet,
 	cell: BaseCell,
 	shipId: string,
-	battleState: BattleState
+	battleState: BattleState,
 ): void {
 	const bulletType = bulletTypes[bullet.type];
 	if (!bulletType || !bulletType.onCollision) {
