@@ -1,4 +1,7 @@
 // Definition for our RNG type
+import { MAX_INT32 } from '../types/Constants';
+
+
 export interface RNG {
 	next: () => number;
 	nextInt: (min: number, max: number) => number;
@@ -30,7 +33,7 @@ export const giveRNG = (seed: number = Date.now()): RNG => {
 		return next() * (max - min) + min;
 	};
 
-	const giveSeed = () => nextInt(0, 1000000000);
+	const giveSeed = () => Math.abs(nextInt(0, MAX_INT32));
 
 	const choose = <T>(array: T[]): T => {
 		return array[nextInt(0, array.length - 1)];
@@ -61,7 +64,7 @@ export const giveRNG = (seed: number = Date.now()): RNG => {
 
 	const randomString = (
 		length: number = 8,
-		chars: string = 'abcdefghijklmnopqrstuvwxyz0123456789'
+		chars: string  = 'abcdefghijklmnopqrstuvwxyz0123456789',
 	): string => {
 		let result = '';
 		for (let i = 0; i < length; i++) {
