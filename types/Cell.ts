@@ -3,6 +3,12 @@ import { Vec2 } from './Physics';
 import { BattleState } from './BattleState';
 
 
+export type CellDomProps = {
+	color: string;
+	cost: number;
+	type: string;
+}
+
 export interface BaseCell {
 	id: string;
 	type: string;
