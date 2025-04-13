@@ -2,12 +2,14 @@
 import { Vec2 } from './Physics';
 import { BattleState } from './BattleState';
 
+
 export interface BaseCell {
 	id: string;
 	type: string;
 	seed: number;
 	pos: Vec2;
 	rarity: number;
+	cost: number;
 
 	// Basic properties
 	mass: number;
@@ -31,6 +33,6 @@ export interface CellTypeRegistry {
 		otherCell: BaseCell,
 		shipId: string,
 		otherShipId: string,
-		battleState: BattleState
+		battleState: BattleState,
 	) => void;
 }
