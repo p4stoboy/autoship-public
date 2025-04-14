@@ -25,3 +25,5 @@ export const rarities: Record<string, string> = {
 	Epic:      '#9642f5',
 	Legendary: '#f5a142',
 };
+
+export const BASE_SERVER_URL = 'https://match.autoship.space'; // Replace with your actual server URL
