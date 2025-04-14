@@ -15,4 +15,4 @@ const props = [
 export const domProps: Record<string, CellDomProps> = props.reduce((map, prop) => {
 	map[prop.type] = prop;
 	return map;
-}, {});
+}, {} as Record<string, CellDomProps>);
