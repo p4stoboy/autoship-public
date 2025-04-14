@@ -36,6 +36,14 @@ import {
 	updateGunCell,
 } from './basic-gun';
 
+
+export const cellTypeNames = [
+	BASIC_CORE,
+	BASIC_HULL,
+	BASIC_THRUSTER,
+	BASIC_GUN,
+];
+
 // Cell type registry
 export const cellTypes: Record<string, CellTypeRegistry> = {
 	[BASIC_CORE]:     {

@@ -3,7 +3,9 @@ import { Vec2 } from './Physics';
 import { BattleState } from './BattleState';
 
 
-const rarityNames = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'];
+export const RARITY_NAMES: string[] = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'];
+
+export const CORE_TYPES: string[] = ['Basic Core'];
 
 export type CellDomProps = {
 	color: string;
