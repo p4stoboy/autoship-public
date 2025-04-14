@@ -4,130 +4,130 @@ import { BattleState } from '../../types/BattleState';
 
 // Import cell types and functions
 import {
-	CORE,
+	BASIC_CORE,
 	createCoreCell,
 	damageCoreCell,
 	handleCoreCollision,
 	renderCoreCell,
 	updateCoreCell,
-} from './core';
+} from './basic-core';
 import {
+	BASIC_HULL,
 	createHullCell,
 	damageHullCell,
 	handleHullCollision,
-	HULL,
 	renderHullCell,
 	updateHullCell,
-} from './hull';
+} from './basic-hull';
 import {
+	BASIC_THRUSTER,
 	createThrusterCell,
 	damageThrusterCell,
 	handleThrusterCollision,
 	renderThrusterCell,
-	THRUSTER,
 	updateThrusterCell,
-} from './thruster';
+} from './basic-thruster';
 import {
+	BASIC_GUN,
 	createGunCell,
 	damageGunCell,
-	GUN,
 	handleGunCollision,
 	renderGunCell,
 	updateGunCell,
-} from './gun';
+} from './basic-gun';
 
 // Cell type registry
 export const cellTypes: Record<string, CellTypeRegistry> = {
-	[CORE]: {
-		create: createCoreCell as (seed: number, rarity: number) => BaseCell,
-		update: updateCoreCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
-		damage: damageCoreCell as (
+	[BASIC_CORE]:     {
+		create:      createCoreCell as (seed: number, rarity: number) => BaseCell,
+		update:      updateCoreCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
+		damage:      damageCoreCell as (
 			cell: BaseCell,
 			amount: number,
 			shipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
-		render: renderCoreCell as (
+		render:      renderCoreCell as (
 			ctx: CanvasRenderingContext2D,
 			cell: BaseCell,
-			shipRot: number
+			shipRot: number,
 		) => void,
 		onCollision: handleCoreCollision as (
 			cell: BaseCell,
 			otherCell: BaseCell,
 			shipId: string,
 			otherShipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
 	},
-	[HULL]: {
-		create: createHullCell as (seed: number, rarity: number) => BaseCell,
-		update: updateHullCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
-		damage: damageHullCell as (
+	[BASIC_HULL]:     {
+		create:      createHullCell as (seed: number, rarity: number) => BaseCell,
+		update:      updateHullCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
+		damage:      damageHullCell as (
 			cell: BaseCell,
 			amount: number,
 			shipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
-		render: renderHullCell as (
+		render:      renderHullCell as (
 			ctx: CanvasRenderingContext2D,
 			cell: BaseCell,
-			shipRot: number
+			shipRot: number,
 		) => void,
 		onCollision: handleHullCollision as (
 			cell: BaseCell,
 			otherCell: BaseCell,
 			shipId: string,
 			otherShipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
 	},
-	[THRUSTER]: {
-		create: createThrusterCell as (seed: number, rarity: number) => BaseCell,
-		update: updateThrusterCell as (
+	[BASIC_THRUSTER]: {
+		create:      createThrusterCell as (seed: number, rarity: number) => BaseCell,
+		update:      updateThrusterCell as (
 			cell: BaseCell,
 			shipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
-		damage: damageThrusterCell as (
+		damage:      damageThrusterCell as (
 			cell: BaseCell,
 			amount: number,
 			shipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
-		render: renderThrusterCell as (
+		render:      renderThrusterCell as (
 			ctx: CanvasRenderingContext2D,
 			cell: BaseCell,
-			shipRot: number
+			shipRot: number,
 		) => void,
 		onCollision: handleThrusterCollision as (
 			cell: BaseCell,
 			otherCell: BaseCell,
 			shipId: string,
 			otherShipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
 	},
-	[GUN]: {
-		create: createGunCell as (seed: number, rarity: number) => BaseCell,
-		update: updateGunCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
-		damage: damageGunCell as (
+	[BASIC_GUN]:      {
+		create:      createGunCell as (seed: number, rarity: number) => BaseCell,
+		update:      updateGunCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
+		damage:      damageGunCell as (
 			cell: BaseCell,
 			amount: number,
 			shipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
-		render: renderGunCell as (
+		render:      renderGunCell as (
 			ctx: CanvasRenderingContext2D,
 			cell: BaseCell,
-			shipRot: number
+			shipRot: number,
 		) => void,
 		onCollision: handleGunCollision as (
 			cell: BaseCell,
 			otherCell: BaseCell,
 			shipId: string,
 			otherShipId: string,
-			battleState: BattleState
+			battleState: BattleState,
 		) => void,
 	},
 };
@@ -155,7 +155,7 @@ export function damageCell(
 	cell: BaseCell,
 	amount: number,
 	shipId: string,
-	battleState: BattleState
+	battleState: BattleState,
 ): void {
 	const cellType = cellTypes[cell.type];
 	if (!cellType) {
@@ -179,7 +179,7 @@ export function handleCellCollision(
 	otherCell: BaseCell,
 	shipId: string,
 	otherShipId: string,
-	battleState: BattleState
+	battleState: BattleState,
 ): void {
 	const cellType = cellTypes[cell.type];
 	if (!cellType || !cellType.onCollision) {
