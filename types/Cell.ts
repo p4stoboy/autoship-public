@@ -3,14 +3,18 @@ import { Vec2 } from './Physics';
 import { BattleState } from './BattleState';
 
 
+const rarityNames = ['Common', 'Uncommon', 'Rare', 'Epic', 'Legendary'];
+
 export type CellDomProps = {
 	color: string;
 	cost: number;
 	type: string;
+	description?: string;
 }
 
 export interface BaseCell {
 	id: string;
+	description?: string;
 	type: string;
 	seed: number;
 	pos: Vec2;
