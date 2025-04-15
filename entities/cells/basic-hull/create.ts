@@ -1,12 +1,17 @@
 // src/entities/cells/basic-hull/create.ts
 import { giveRNG } from '../../../utils/determinism';
 import { domProps, HullCell } from './types';
+import { rarityWeights } from '../../../types/Constants';
 
 
-export function createHullCell(seed: number, rarity: number = 0): HullCell {
+export function createHullCell(seed: number): HullCell {
 	const r = giveRNG(seed);
 
-	const maxHealth = 20 * rarity;
+	const rarity = r.weightedRandom(rarityWeights);
+	// Calculate properties based on rarity
+	const rVal   = rarity + 1;
+
+	const maxHealth = 20 * rVal;
 	const mass      = 2;
 
 	return {

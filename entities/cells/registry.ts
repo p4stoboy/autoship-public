@@ -47,7 +47,7 @@ export const cellTypeNames = [
 // Cell type registry
 export const cellTypes: Record<string, CellTypeRegistry> = {
 	[BASIC_CORE]:     {
-		create:      createCoreCell as (seed: number, rarity: number) => BaseCell,
+		create:      createCoreCell as (seed: number) => BaseCell,
 		update:      updateCoreCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
 		damage:      damageCoreCell as (
 			cell: BaseCell,
@@ -69,7 +69,7 @@ export const cellTypes: Record<string, CellTypeRegistry> = {
 		) => void,
 	},
 	[BASIC_HULL]:     {
-		create:      createHullCell as (seed: number, rarity: number) => BaseCell,
+		create:      createHullCell as (seed: number) => BaseCell,
 		update:      updateHullCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
 		damage:      damageHullCell as (
 			cell: BaseCell,
@@ -91,7 +91,7 @@ export const cellTypes: Record<string, CellTypeRegistry> = {
 		) => void,
 	},
 	[BASIC_THRUSTER]: {
-		create:      createThrusterCell as (seed: number, rarity: number) => BaseCell,
+		create:      createThrusterCell as (seed: number) => BaseCell,
 		update:      updateThrusterCell as (
 			cell: BaseCell,
 			shipId: string,
@@ -117,7 +117,7 @@ export const cellTypes: Record<string, CellTypeRegistry> = {
 		) => void,
 	},
 	[BASIC_GUN]:      {
-		create:      createGunCell as (seed: number, rarity: number) => BaseCell,
+		create:      createGunCell as (seed: number) => BaseCell,
 		update:      updateGunCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
 		damage:      damageGunCell as (
 			cell: BaseCell,
@@ -141,12 +141,12 @@ export const cellTypes: Record<string, CellTypeRegistry> = {
 };
 
 // Function to create any cell type
-export function createCell(type: string, seed: number, rarity: number = 1): BaseCell {
+export function createCell(type: string, seed: number): BaseCell {
 	const cellType = cellTypes[type];
 	if (!cellType) {
 		throw new Error(`Unknown cell type: ${type}`);
 	}
-	return cellType.create(seed, rarity);
+	return cellType.create(seed);
 }
 
 // Function to update any cell

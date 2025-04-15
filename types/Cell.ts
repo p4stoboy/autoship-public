@@ -36,7 +36,7 @@ export interface BaseCell {
 
 // Define the Cell Type Registry interface
 export interface CellTypeRegistry {
-	create: (seed: number, rarity: number) => BaseCell;
+	create: (seed: number) => BaseCell;
 	update: (cell: BaseCell, shipId: string, battleState: BattleState) => void;
 	damage: (cell: BaseCell, amount: number, shipId: string, battleState: BattleState) => void;
 	render: (ctx: CanvasRenderingContext2D, cell: BaseCell, shipRot: number) => void;
