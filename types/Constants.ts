@@ -11,6 +11,9 @@ export const ARENA_SIZE = 250;
 export const SHIP_SIZE      = 5; // Grid size (5x5)
 export const SHIP_CELL_SIZE = 10; // Physical size of each cell in abstract units
 
+export const MIN_SHIP_CELLS = 4;
+export const MAX_SHIP_CELLS = 16;
+
 // Physics constants
 export const MAX_SHIP_VELOCITY    = 4;
 export const MAX_ANGULAR_VELOCITY = 0.05;
