@@ -20,7 +20,7 @@ export function createThrusterParticles(
 	const thrusterPos = getCellWorldPosition(ship, cell, true);
 
 	// Calculate opposite direction of basic-thruster (where exhaust goes)
-	const exhaustDir   = cell.dir * Math.PI * 2 + ship.rot * Math.PI * 2;
+	const exhaustDir   = cell.dir * Math.PI * 2 + ship.rot;
 	const numParticles = r.nextInt(1, 5);
 	// Create velocity with randomness
 	for (let i = 0; i < numParticles; i++) {
