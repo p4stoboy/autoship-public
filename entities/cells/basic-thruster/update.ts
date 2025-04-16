@@ -12,6 +12,7 @@ export function updateThrusterCell(
 ): void {
 	// Skip if destroyed
 	if (cell.destroyed) return;
+	cell.damaged   = false;
 	// Check if basic-thruster should be firing this frame
 	const isActive = true; //battleState.frame % cell.period < cell.active;
 	cell.firing    = isActive;

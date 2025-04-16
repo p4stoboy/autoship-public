@@ -7,5 +7,7 @@ export function updateCoreCell(cell: CoreCell, _shipId: string, _battleState: Ba
 	// Skip if destroyed
 	if (cell.destroyed) return;
 
+	cell.damaged = false;
+
 	// Additional basic-core-specific logic
 }

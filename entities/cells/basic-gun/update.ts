@@ -9,6 +9,9 @@ export function updateGunCell(cell: GunCell, shipId: string, battleState: Battle
 	// Skip if destroyed
 	if (cell.destroyed) return;
 
+	// Reset damaged state
+	cell.damaged = false;
+
 	// Decrement cooldown
 	if (cell.cooldown > 0) {
 		cell.cooldown--;

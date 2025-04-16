@@ -7,6 +7,6 @@ export function updateHullCell(cell: HullCell, _shipId: string, _battleState: Ba
 	// Hull cells don't have any special update behavior
 	// Skip if destroyed
 	if (cell.destroyed) return;
-
+	cell.damaged = false;
 	// Hull-specific update logic (if any)
 }
