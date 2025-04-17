@@ -5,6 +5,7 @@ import { Particle } from './Particle';
 import { RNG } from '../utils/determinism';
 import { BattleRenderConfig } from './RenderConfig';
 
+
 export interface BattleState {
 	seed: number;
 	rng: RNG;
@@ -13,6 +14,7 @@ export interface BattleState {
 	particles: Particle[];
 	frame: number;
 	winner?: string;
+	isNoContest?: boolean;
 	renderConfig?: BattleRenderConfig;
 	debugFlags?: {
 		showCenterOfMass: boolean;

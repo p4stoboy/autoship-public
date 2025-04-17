@@ -5,7 +5,13 @@
 export const MAX_INT32 = 2147483647 - 1;
 
 // Arena dimensions (fixed abstract units)
-export const ARENA_SIZE = 250;
+export const ARENA_SIZE        = 250;
+export const MAX_BATTLE_FRAMES = 3600; // 1 minute at 60fps
+
+export const WIN_REWARD  = 20;
+export const LOSE_REWARD = 5;
+export const DRAW_REWARD = 10;
+
 
 // Ship dimensions
 export const SHIP_SIZE      = 5; // Grid size (5x5)

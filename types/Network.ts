@@ -35,6 +35,7 @@ export interface PlayerResults {
 export interface BattleResponse {
 	winnerId: string | null;
 	isDraw: boolean;
+	isNoContest: boolean;
 	frames: number;
 	battleProps: BattleProperties;  // For battle reconstruction
 	player1: PlayerResults;
