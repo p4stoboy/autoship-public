@@ -13,6 +13,10 @@ export const LOSE_REWARD = 5;
 export const DRAW_REWARD = 10;
 
 
+export const GHOST_PLAYER_ID = '00000000-0000-0000-0000-000000000000';
+export const GHOST_SHIP_ID   = '00000000-0000-0000-0000-000000000000';
+
+
 // Ship dimensions
 export const SHIP_SIZE      = 5; // Grid size (5x5)
 export const SHIP_CELL_SIZE = 10; // Physical size of each cell in abstract units
