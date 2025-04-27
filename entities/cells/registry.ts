@@ -44,99 +44,34 @@ export const cellTypeNames = [
 	BASIC_GUN,
 ];
 
-// Cell type registry
 export const cellTypes: Record<string, CellTypeRegistry> = {
 	[BASIC_CORE]:     {
-		create:      createCoreCell as (seed: number) => BaseCell,
-		update:      updateCoreCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
-		damage:      damageCoreCell as (
-			cell: BaseCell,
-			amount: number,
-			shipId: string,
-			battleState: BattleState,
-		) => void,
-		render:      renderCoreCell as (
-			ctx: CanvasRenderingContext2D,
-			cell: BaseCell,
-			shipRot: number,
-		) => void,
-		onCollision: handleCoreCollision as (
-			cell: BaseCell,
-			otherCell: BaseCell,
-			shipId: string,
-			otherShipId: string,
-			battleState: BattleState,
-		) => void,
+		create:      createCoreCell,
+		update:      updateCoreCell,
+		damage:      damageCoreCell,
+		render:      renderCoreCell,
+		onCollision: handleCoreCollision,
 	},
 	[BASIC_HULL]:     {
-		create:      createHullCell as (seed: number) => BaseCell,
-		update:      updateHullCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
-		damage:      damageHullCell as (
-			cell: BaseCell,
-			amount: number,
-			shipId: string,
-			battleState: BattleState,
-		) => void,
-		render:      renderHullCell as (
-			ctx: CanvasRenderingContext2D,
-			cell: BaseCell,
-			shipRot: number,
-		) => void,
-		onCollision: handleHullCollision as (
-			cell: BaseCell,
-			otherCell: BaseCell,
-			shipId: string,
-			otherShipId: string,
-			battleState: BattleState,
-		) => void,
+		create:      createHullCell,
+		update:      updateHullCell,
+		damage:      damageHullCell,
+		render:      renderHullCell,
+		onCollision: handleHullCollision,
 	},
 	[BASIC_THRUSTER]: {
-		create:      createThrusterCell as (seed: number) => BaseCell,
-		update:      updateThrusterCell as (
-			cell: BaseCell,
-			shipId: string,
-			battleState: BattleState,
-		) => void,
-		damage:      damageThrusterCell as (
-			cell: BaseCell,
-			amount: number,
-			shipId: string,
-			battleState: BattleState,
-		) => void,
-		render:      renderThrusterCell as (
-			ctx: CanvasRenderingContext2D,
-			cell: BaseCell,
-			shipRot: number,
-		) => void,
-		onCollision: handleThrusterCollision as (
-			cell: BaseCell,
-			otherCell: BaseCell,
-			shipId: string,
-			otherShipId: string,
-			battleState: BattleState,
-		) => void,
+		create:      createThrusterCell,
+		update:      updateThrusterCell,
+		damage:      damageThrusterCell,
+		render:      renderThrusterCell,
+		onCollision: handleThrusterCollision,
 	},
 	[BASIC_GUN]:      {
-		create:      createGunCell as (seed: number) => BaseCell,
-		update:      updateGunCell as (cell: BaseCell, shipId: string, battleState: BattleState) => void,
-		damage:      damageGunCell as (
-			cell: BaseCell,
-			amount: number,
-			shipId: string,
-			battleState: BattleState,
-		) => void,
-		render:      renderGunCell as (
-			ctx: CanvasRenderingContext2D,
-			cell: BaseCell,
-			shipRot: number,
-		) => void,
-		onCollision: handleGunCollision as (
-			cell: BaseCell,
-			otherCell: BaseCell,
-			shipId: string,
-			otherShipId: string,
-			battleState: BattleState,
-		) => void,
+		create:      createGunCell,
+		update:      updateGunCell,
+		damage:      damageGunCell,
+		render:      renderGunCell,
+		onCollision: handleGunCollision,
 	},
 };
 

@@ -34,17 +34,22 @@ export interface BaseCell {
 	destroyed: boolean;
 }
 
-// Define the Cell Type Registry interface
+export type CellCreateFn = (seed: number) => BaseCell;
+export type CellUpdateFn = (cell: BaseCell, shipId: string, battleState: BattleState) => void;
+export type CellDamageFn = (cell: BaseCell, amount: number, shipId: string, battleState: BattleState) => void;
+export type CellRenderFn = (ctx: CanvasRenderingContext2D, cell: BaseCell, shipRot: number) => void;
+export type CellCollisionFn = (
+	cell: BaseCell,
+	otherCell: BaseCell,
+	shipId: string,
+	otherShipId: string,
+	battleState: BattleState,
+) => void;
+
 export interface CellTypeRegistry {
-	create: (seed: number) => BaseCell;
-	update: (cell: BaseCell, shipId: string, battleState: BattleState) => void;
-	damage: (cell: BaseCell, amount: number, shipId: string, battleState: BattleState) => void;
-	render: (ctx: CanvasRenderingContext2D, cell: BaseCell, shipRot: number) => void;
-	onCollision?: (
-		cell: BaseCell,
-		otherCell: BaseCell,
-		shipId: string,
-		otherShipId: string,
-		battleState: BattleState,
-	) => void;
+	create: CellCreateFn;
+	update: CellUpdateFn;
+	damage: CellDamageFn;
+	render: CellRenderFn;
+	onCollision: CellCollisionFn;
 }
