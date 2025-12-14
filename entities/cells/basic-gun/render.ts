@@ -1,14 +1,16 @@
 // src/entities/cells/basic-gun/render.ts
 import { GunCell } from './types';
+import { BaseCell } from '../../../types/Cell';
 import { SHIP_CELL_SIZE } from '../../../types/Constants';
 import { darkenColor } from '../../../utils/color';
 
 
 export function renderGunCell(
 	ctx: CanvasRenderingContext2D,
-	cell: GunCell,
+	baseCell: BaseCell,
 	_shipRot: number,
 ): void {
+	const cell = baseCell as GunCell;
 	const { cellSize } = { cellSize: SHIP_CELL_SIZE }; // Default cell size
 
 	// Calculate health percentage

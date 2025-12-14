@@ -1,14 +1,16 @@
 // src/entities/cells/basic-thruster/render.ts
 import { ThrusterCell } from './types';
+import { BaseCell } from '../../../types/Cell';
 import { SHIP_CELL_SIZE } from '../../../types/Constants';
 import { darkenColor } from '../../../utils/color';
 
 
 export function renderThrusterCell(
 	ctx: CanvasRenderingContext2D,
-	cell: ThrusterCell,
+	baseCell: BaseCell,
 	_shipRot: number,
 ): void {
+	const cell = baseCell as ThrusterCell;
 	const { cellSize } = { cellSize: SHIP_CELL_SIZE }; // Default cell size
 
 	// Calculate health percentage

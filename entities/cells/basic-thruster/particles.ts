@@ -3,7 +3,7 @@ import { ThrusterCell } from './types';
 import { Ship } from '../../../types/Ship';
 import { BattleState } from '../../../types/BattleState';
 import { dv } from '../../../utils/determinism';
-import { getCellWorldPosition } from '../../ship/util';
+import { getCellWorldPosition } from '../../../functions/ship/position';
 
 
 export function createThrusterParticles(

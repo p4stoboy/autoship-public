@@ -2,7 +2,7 @@
 import { CoreCell } from './types';
 import { Ship } from '../../../types/Ship';
 import { BattleState } from '../../../types/BattleState';
-import { getCellWorldPosition } from '../../ship/util';
+import { getCellWorldPosition } from '../../../functions/ship/position';
 
 
 export function createCoreExplosion(cell: CoreCell, ship: Ship, battleState: BattleState): void {

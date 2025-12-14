@@ -12,10 +12,8 @@ export const WIN_REWARD  = 20;
 export const LOSE_REWARD = 5;
 export const DRAW_REWARD = 10;
 
-
 export const GHOST_PLAYER_ID = '00000000-0000-0000-0000-000000000000';
 export const GHOST_SHIP_ID   = '00000000-0000-0000-0000-000000000000';
-
 
 // Ship dimensions
 export const SHIP_SIZE      = 5; // Grid size (5x5)
@@ -38,5 +36,3 @@ export const rarities: Record<string, string> = {
 	Epic:      '#9642f5',
 	Legendary: '#f5a142',
 };
-
-export const BASE_SERVER_URL = 'https://match.autoship.space'; // Replace with your actual server URL

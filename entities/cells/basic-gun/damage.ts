@@ -1,15 +1,17 @@
 // src/entities/cells/basic-gun/damage.ts
 import { GunCell } from './types';
+import { BaseCell } from '../../../types/Cell';
 import { BattleState } from '../../../types/BattleState';
 import { createGunExplosion } from './particles';
 
 
 export function damageGunCell(
-	cell: GunCell,
+	baseCell: BaseCell,
 	amount: number,
 	shipId: string,
 	battleState: BattleState,
 ): void {
+	const cell = baseCell as GunCell;
 	// Skip if already destroyed
 	if (cell.destroyed) return;
 

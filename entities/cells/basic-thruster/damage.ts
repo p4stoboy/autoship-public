@@ -1,15 +1,17 @@
 // src/entities/cells/basic-thruster/damage.ts
 import { ThrusterCell } from './types';
+import { BaseCell } from '../../../types/Cell';
 import { BattleState } from '../../../types/BattleState';
 import { createThrusterExplosion } from './particles';
 
 
 export function damageThrusterCell(
-	cell: ThrusterCell,
+	baseCell: BaseCell,
 	amount: number,
 	shipId: string,
 	battleState: BattleState,
 ): void {
+	const cell = baseCell as ThrusterCell;
 	// Skip if already destroyed
 	if (cell.destroyed) return;
 

@@ -5,12 +5,13 @@ import { BattleState } from '../../../types/BattleState';
 
 
 export function handleGunCollision(
-	cell: GunCell,
+	baseCell: BaseCell,
 	_otherCell: BaseCell,
 	_shipId: string,
 	_otherShipId: string,
 	battleState: BattleState,
 ): void {
+	const cell = baseCell as GunCell;
 	// Gun-specific collision behavior (if any)
 	// Guns might have their aim disrupted by collisions
 

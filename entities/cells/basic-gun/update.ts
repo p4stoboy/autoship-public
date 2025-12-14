@@ -1,11 +1,13 @@
 // src/entities/cells/basic-gun/update.ts
 import { GunCell } from './types';
+import { BaseCell } from '../../../types/Cell';
 import { BattleState } from '../../../types/BattleState';
 import { dv } from '../../../utils/determinism';
-import { getCellWorldPosition } from '../../ship/util';
+import { getCellWorldPosition } from '../../../functions/ship/position';
 
 
-export function updateGunCell(cell: GunCell, shipId: string, battleState: BattleState): void {
+export function updateGunCell(baseCell: BaseCell, shipId: string, battleState: BattleState): void {
+	const cell = baseCell as GunCell;
 	// Skip if destroyed
 	if (cell.destroyed) return;
 

@@ -7,6 +7,10 @@ export const RARITY_NAMES: string[] = ['Common', 'Uncommon', 'Rare', 'Epic', 'Le
 
 export const CORE_TYPES: string[] = ['Basic Core'];
 
+export const DB_SHIP_CELL_PROPS: string[] = [
+	'dir',
+];
+
 export type CellDomProps = {
 	color: string;
 	cost: number;

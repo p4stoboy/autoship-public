@@ -1,11 +1,10 @@
 // src/entities/cells/basic-thruster/collision.ts
-import { ThrusterCell } from './types';
 import { BaseCell } from '../../../types/Cell';
 import { BattleState } from '../../../types/BattleState';
 
 
 export function handleThrusterCollision(
-	_cell: ThrusterCell,
+	_cell: BaseCell,
 	_otherCell: BaseCell,
 	_shipId: string,
 	_otherShipId: string,

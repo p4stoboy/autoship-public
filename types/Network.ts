@@ -40,4 +40,5 @@ export interface BattleResponse {
 	battleProps: BattleProperties;  // For battle reconstruction
 	player1: PlayerResults;
 	player2: PlayerResults;
+	error?: string;  // Error message if any
 }
